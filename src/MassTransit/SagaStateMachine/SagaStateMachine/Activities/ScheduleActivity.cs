@@ -17,7 +17,7 @@
             ScheduleTimeProvider<TSaga> timeProvider, ContextMessageFactory<BehaviorContext<TSaga>, TMessage> messageFactory)
         {
             _messageFactory = messageFactory;
-            _schedule = schedule;
+            _schedule = schedule ?? throw new ArgumentNullException(nameof(schedule), "Call Schedule() first");
             _timeProvider = timeProvider;
         }
 
@@ -94,7 +94,7 @@
             ScheduleTimeProvider<TSaga, TMessage> timeProvider, ContextMessageFactory<BehaviorContext<TSaga, TMessage>, T> messageFactory)
         {
             _messageFactory = messageFactory;
-            _schedule = schedule;
+            _schedule = schedule ?? throw new ArgumentNullException(nameof(schedule), "Call Schedule() first");
             _timeProvider = timeProvider;
         }
 

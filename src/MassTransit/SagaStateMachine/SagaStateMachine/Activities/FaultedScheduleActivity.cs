@@ -18,7 +18,7 @@
             ContextMessageFactory<BehaviorExceptionContext<TSaga, TException>, TMessage> messageFactory)
         {
             _messageFactory = messageFactory;
-            _schedule = schedule;
+            _schedule = schedule ?? throw new ArgumentNullException(nameof(schedule), "Call Schedule() first");
             _timeProvider = timeProvider;
         }
 
@@ -99,7 +99,7 @@
             ContextMessageFactory<BehaviorExceptionContext<TSaga, TData, TException>, TMessage> messageFactory)
         {
             _messageFactory = messageFactory;
-            _schedule = schedule;
+            _schedule = schedule ?? throw new ArgumentNullException(nameof(schedule), "Call Schedule() first");
             _timeProvider = timeProvider;
         }
 

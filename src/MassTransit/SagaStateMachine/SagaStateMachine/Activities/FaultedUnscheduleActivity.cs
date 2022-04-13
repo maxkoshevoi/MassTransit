@@ -12,7 +12,7 @@
 
         public FaultedUnscheduleActivity(Schedule<TSaga> schedule)
         {
-            _schedule = schedule;
+            _schedule = schedule ?? throw new ArgumentNullException(nameof(schedule), "Call Schedule() first");
         }
 
         public void Accept(StateMachineVisitor inspector)
